@@ -1,1 +1,0 @@
-# PythonNeoPixelTutorial6
