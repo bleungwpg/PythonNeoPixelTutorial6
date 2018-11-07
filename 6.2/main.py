@@ -39,102 +39,49 @@ def lookupColor(color,i):
 
 
 
-def showMessage1():
-    # start - fixed message 1
-    # remember to change globalvariables.message#
-    i = 0
-    for r in range(0,8):
-        for c in range(0,8):
-            color = globalvariables.message1[r][c]
-            lookupColor(color,i)
-            i += 1
-    for r in range(0,8):
-        for c in range(8,16):
-            color = globalvariables.message1[r][c]
-            lookupColor(color,i)
-            i += 1
-    strip.write()
-    time.sleep(3)
-   # end - fixed message 1
-
-    globalvariables.messageID = 2
-
-
-def showMessage2():
-    # start - fixed message 2
-    # remember to change globalvariables.message#
-    i = 0
-    for r in range(0,8):
-        for c in range(0,8):
-            color = globalvariables.message2[r][c]
-            lookupColor(color,i)
-            i += 1
-    for r in range(0,8):
-        for c in range(8,16):
-            color = globalvariables.message2[r][c]
-            lookupColor(color,i)
-            i += 1
-    strip.write()
-    time.sleep(3)
-    # end - fixed message 2
-
-    globalvariables.messageID = 3
-
-
-def showMessage3():
-    # start - fixed message 3
-    # remember to change globalvariables.message#
-    i = 0
-    for r in range(0,8):
-        for c in range(0,8):
-            color = globalvariables.message3[r][c]
-            lookupColor(color,i)
-            i += 1
-    for r in range(0,8):
-        for c in range(8,16):
-            color = globalvariables.message3[r][c]
-            lookupColor(color,i)
-            i += 1
-    strip.write()
-    time.sleep(3)
-    # end - fixed message 3
-
-    globalvariables.messageID = 4
-
-
-
-def showMessage4():
+def showMessage(nextMessage,duration,myMessage):
     # start - fixed message 4 
     # remember to change globalvariables.message#
     i = 0
     for r in range(0,8):
         for c in range(0,8):
-            color = globalvariables.message4[r][c]
+            color = myMessage[r][c]
             lookupColor(color,i)
             i += 1
     for r in range(0,8):
         for c in range(8,16):
-            color = globalvariables.message4[r][c]
+            color = myMessage[r][c]
             lookupColor(color,i)
             i += 1
     strip.write()
-    time.sleep(3)
-    # end - fixed message 4 
+    time.sleep(duration)
 
-    globalvariables.messageID = 1
+    # switch to next message
+    globalvariables.messageID = nextMessage
 
 
 
 while True:
     if globalvariables.messageID == 1:
-        strip.write()
-        showMessage1()
+        # showMessage(nextMessage,messageDuration,message)
+        showMessage(2,1,globalvariables.message1)
+
+
     elif globalvariables.messageID == 2:
-        strip.write()
-        showMessage2()
+        # shortcut for message 2
+        showMessage(5,2,globalvariables.message2)
+
+
     elif globalvariables.messageID == 3:
-        strip.write()
-        showMessage3()
+        # shortcut for message 3
+        showMessage(4,1,globalvariables.message3)
+
+
     elif globalvariables.messageID == 4:
-        strip.write()
-        showMessage4()
+        # shortcut for message 4
+        showMessage(1,2,globalvariables.message4)
+
+
+    elif globalvariables.messageID == 5:
+        # shortcut for message 5
+        showMessage(3,5,globalvariables.message1)

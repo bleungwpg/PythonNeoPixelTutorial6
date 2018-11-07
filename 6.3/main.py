@@ -38,118 +38,64 @@ def lookupColor(color,i):
 
 
 
-def showMessage1():
+def showMessage(nextMessage,duration,myMessage,myMaxLength,myCountToMax):
+    # start - show Message
     i = 0
 
     for r in range(0,8):
-        for c in range(globalvariables.countToMaxLength1,globalvariables.countToMaxLength1+8):
+        for c in range(myCountToMax,myCountToMax+8):
             temp = c % globalvariables.maxLengthOfAdvertisement1
-            color = globalvariables.message1[r][temp]
+            color = myMessage[r][temp]
             lookupColor(color,i)
             i += 1
-
 
     for r in range(0,8):
-        for c in range(globalvariables.countToMaxLength1+8,globalvariables.countToMaxLength1+16):
-            temp = c % globalvariables.maxLengthOfAdvertisement1
-            color = globalvariables.message1[r][temp]
+        for c in range(myCountToMax+8,myCountToMax+16):
+            temp = c % 
+            color = myMessage[r][temp]
             lookupColor(color,i)
             i += 1
 
 
-    globalvariables.countToMaxLength1 += 1
-    if globalvariables.countToMaxLength1 > globalvariables.maxLengthOfAdvertisement1:
-        globalvariables.countToMaxLength1 = 0
-        globalvariables.messageID = 2
+    strip.write()
+    time.sleep(duration)
+
+    myCountToMax += 1
+    if myCountToMax > myMaxLength:
+        myCountToMax = 0
+        globalvariables.messageID = nextMessage
 
 
-def showMessage2():
-    i = 0
-
-    for r in range(0,8):
-        for c in range(globalvariables.countToMaxLength2,globalvariables.countToMaxLength2+8):
-            temp = c % globalvariables.maxLengthOfAdvertisement2
-            color = globalvariables.message2[r][temp]
-            lookupColor(color,i)
-            i += 1
-
-
-    for r in range(0,8):
-        for c in range(globalvariables.countToMaxLength2+8,globalvariables.countToMaxLength2+16):
-            temp = c % globalvariables.maxLengthOfAdvertisement2
-            color = globalvariables.message2[r][temp]
-            lookupColor(color,i)
-            i += 1
-
-
-    globalvariables.countToMaxLength2 += 1
-    if globalvariables.countToMaxLength2 > globalvariables.maxLengthOfAdvertisement2-6:
-        globalvariables.countToMaxLength2 = 0
-        globalvariables.messageID = 3
-
-
-def showMessage3():
-    i = 0
-
-    for r in range(0,8):
-        for c in range(globalvariables.countToMaxLength3,globalvariables.countToMaxLength3+8):
-            temp = c % globalvariables.maxLengthOfAdvertisement3
-            color = globalvariables.message3[r][temp]
-            lookupColor(color,i)
-            i += 1
-
-
-    for r in range(0,8):
-        for c in range(globalvariables.countToMaxLength3+8,globalvariables.countToMaxLength3+16):
-            temp = c % globalvariables.maxLengthOfAdvertisement3
-            color = globalvariables.message3[r][temp]
-            lookupColor(color,i)
-            i += 1
-
-
-    globalvariables.countToMaxLength3 += 1
-    if globalvariables.countToMaxLength3 > globalvariables.maxLengthOfAdvertisement3-6:
-        globalvariables.countToMaxLength3 = 0
-        globalvariables.messageID = 4
-
-
-
-def showMessage4():
-    i = 0
-
-    for r in range(0,8):
-        for c in range(globalvariables.countToMaxLength4,globalvariables.countToMaxLength4+8):
-            temp = c % globalvariables.maxLengthOfAdvertisement4
-            color = globalvariables.message4[r][temp]
-            lookupColor(color,i)
-            i += 1
-
-
-    for r in range(0,8):
-        for c in range(globalvariables.countToMaxLength4+8,globalvariables.countToMaxLength4+16):
-            temp = c % globalvariables.maxLengthOfAdvertisement4
-            color = globalvariables.message4[r][temp]
-            lookupColor(color,i)
-            i += 1
-
-
-    globalvariables.countToMaxLength4 += 1
-    if globalvariables.countToMaxLength4 > globalvariables.maxLengthOfAdvertisement4-6:
-        globalvariables.countToMaxLength4 = 0
-        globalvariables.messageID = 1
 
 
 
 while True:
     if globalvariables.messageID == 1:
+        # shortcut for message 1
         strip.write()
-        showMessage1()
+        # showMessage(nextMessage,messageDuration,message,maxLengthOfAdvertisement,countToMax)
+        showMessage(2,1,globalvariables.message1,globalvariables.maxLengthOfAdvertisement1,globalvariables.countToMaxLength1)
+
+
+
     elif globalvariables.messageID == 2:
+        # shortcut for message 2
         strip.write()
-        showMessage2()
+        showMessage(3,2,globalvariables.message2,globalvariables.maxLengthOfAdvertisement2,globalvariables.countToMaxLength2)
+
+
+
     elif globalvariables.messageID == 3:
+        # shortcut for message 3
         strip.write()
-        showMessage3()
+        showMessage(4,1,globalvariables.message3,globalvariables.maxLengthOfAdvertisement3,globalvariables.countToMaxLength3)
+
+
     elif globalvariables.messageID == 4:
+        # shortcut for message 4
         strip.write()
-        showMessage4()
+        showMessage(1,2,globalvariables.message4,globalvariables.maxLengthOfAdvertisement4,globalvariables.countToMaxLength4)
+
+
+
+

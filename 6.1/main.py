@@ -27,7 +27,8 @@ def showMessage1():
 
 
 
-def showMessage2():
+
+def showMessage2(nextMessage):
 	# reset previous colors
     strip[0] = (0,0,0)
     strip[7] = (0,0,0)
@@ -36,13 +37,14 @@ def showMessage2():
     strip[32] = (0,255,0)
     strip[39] = (0,255,0)
     strip.write()
-    time.sleep(1)
+    time.sleep(2)
 
     # switch to next message
-    globalvariables.messageID = 3
+    globalvariables.messageID = nextMessage
 
 
-def showMessage3():
+
+def showMessage3(duration):
 	# reset previous colors
     strip[32] = (0,0,0)
     strip[39] = (0,0,0)
@@ -51,13 +53,14 @@ def showMessage3():
     strip[64] = (255,50,200)
     strip[71] = (255,50,200)
     strip.write()
-    time.sleep(1)
+    time.sleep(duration)
 
     # switch to next message
     globalvariables.messageID = 4
 
 
-def showMessage4():
+
+def showMessage4(nextMessage,duration):
 	# reset previous colors
     strip[64] = (0,0,0)
     strip[71] = (0,0,0)
@@ -66,23 +69,30 @@ def showMessage4():
     strip[96] = (0,0,255)
     strip[103] = (0,0,255)
     strip.write()
-    time.sleep(1)
+    time.sleep(duration)
 
     # switch to next message
-    globalvariables.messageID = 1
+    globalvariables.messageID = nextMessage
 
 
 
 while True:
     if globalvariables.messageID == 1:
-        strip.write()
+        # go to showMessage1()
         showMessage1()
+
+
     elif globalvariables.messageID == 2:
-        strip.write()
-        showMessage2()
+        # go to showMessage2(nextMessage)
+        showMessage2(3)
+
+
+
     elif globalvariables.messageID == 3:
-        strip.write()
-        showMessage3()
+        # go to showMessage3(messageDuration)
+        showMessage3(1)
+
+
     elif globalvariables.messageID == 4:
-        strip.write()
-        showMessage4()
+        # go to showMessage4(nextMessage,messageDuration)
+        showMessage4(1,2)
