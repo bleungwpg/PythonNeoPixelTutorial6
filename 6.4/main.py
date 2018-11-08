@@ -53,7 +53,7 @@ def showMessageMaskD(nextMessage,duration,myMessage,mask,startingPoint):
         for c in range(0,8):
             temp = r % len(myMessage)
             color = myMessage[temp][c]
-            if mask[r2][c] == 17:
+            if mask[r2][c] == 1:
                 lookupColor(color,i)
             else:
                 strip[i] = (0,0,0)
@@ -67,7 +67,7 @@ def showMessageMaskD(nextMessage,duration,myMessage,mask,startingPoint):
         for c in range(8,16):
             temp = r % len(myMessage)
             color = myMessage[temp][c]
-            if mask[r2][c] == 17:
+            if mask[r2][c] == 1:
                 lookupColor(color,i)
             else:
                 strip[i] = (0,0,0)
