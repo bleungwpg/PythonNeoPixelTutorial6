@@ -69,7 +69,7 @@ while True:
 
     elif globalvariables.messageID == 2:
         # shortcut for message 2
-        showMessage(5,2,globalvariables.message2)
+        showMessage(3,2,globalvariables.message2)
 
 
     elif globalvariables.messageID == 3:
@@ -79,9 +79,9 @@ while True:
 
     elif globalvariables.messageID == 4:
         # shortcut for message 4
-        showMessage(1,2,globalvariables.message4)
+        showMessage(5,2,globalvariables.message4)
 
 
     elif globalvariables.messageID == 5:
         # shortcut for message 5
-        showMessage(3,5,globalvariables.message1)
+        showMessage(1,5,globalvariables.message1)
